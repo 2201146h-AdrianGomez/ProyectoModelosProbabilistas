@@ -127,8 +127,8 @@ docs/FORMATO.md             Formato del archivo de red
 
 | Integrante | Parte | Contribuciones |
 |---|---|---|
-| Luis Adrián Gómez Saavedra | Parte 2| HTML/CSS, dibujo del grafo, editor de nodos y de tablas de probabilidad, barra superior|
-| Luis Roberto _(apellidos)_ | Parte 1|  Modelo de la red, validaciones, factores, eliminación de variables, enumeración de referencia y pruebas |
-| Jonathan _(apellidos)_ | Parte 3 | Panel de consultas, guardar/abrir JSON, informe imprimible, ejemplos y documentación |
+| Luis Adrián Gómez Saavedra | Parte 2 · Interfaz | HTML/CSS, dibujo del grafo, editor de nodos y de tablas de probabilidad, barra superior |
+| Luis Roberto Villafuerte Gómez| Parte 1 · Núcleo | Modelo de la red, validaciones, factores, eliminación de variables, enumeración de referencia y pruebas |
+| Jonathan Miguel Anguiano Huitron| Parte 3 · Consultas, archivos y salidas | Panel de consultas, guardar/abrir JSON, informe imprimible, ejemplos y documentación |
 
 El historial de commits (`git shortlog -sn`) respalda esta tabla.
