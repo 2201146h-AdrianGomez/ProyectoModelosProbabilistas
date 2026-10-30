@@ -1,0 +1,14 @@
+{
+  "name": "redes-bayesianas",
+  "version": "1.0.0",
+  "description": "Construye, visualiza y consulta redes bayesianas con eliminación de variables. Funciona en el navegador.",
+  "private": true,
+  "scripts": {
+    "test": "node pruebas/pruebas.js",
+    "ejemplos": "node herramientas/generar-ejemplos.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
