@@ -1,0 +1,40 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Pasto mojado",
+  "descripcion": "Clásico de 3 nodos: la lluvia puede encender el aspersor y ambos mojan el pasto.",
+  "nodos": [
+    {
+      "nombre": "Lluvia",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.2, 0.8]
+      ],
+      "posicion": { "x": 500, "y": 75 }
+    },
+    {
+      "nombre": "Aspersor",
+      "estados": ["Sí", "No"],
+      "padres": ["Lluvia"],
+      "cpt": [
+        [0.01, 0.99],
+        [0.4, 0.6]
+      ],
+      "posicion": { "x": 500, "y": 310 }
+    },
+    {
+      "nombre": "Pasto mojado",
+      "estados": ["Sí", "No"],
+      "padres": ["Aspersor", "Lluvia"],
+      "cpt": [
+        [0.99, 0.01],
+        [0.9, 0.1],
+        [0.8, 0.2],
+        [0, 1]
+      ],
+      "posicion": { "x": 500, "y": 545 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Lluvia"], "evidencia": {"Pasto mojado":"Sí"} }
+}

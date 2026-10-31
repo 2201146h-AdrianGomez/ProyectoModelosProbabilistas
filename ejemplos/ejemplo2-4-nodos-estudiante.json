@@ -1,0 +1,50 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Estudiante",
+  "descripcion": "La calificación depende de la dificultad del curso y de la preparación; la carta de recomendación depende de la calificación (un nodo con 3 estados).",
+  "nodos": [
+    {
+      "nombre": "Dificultad",
+      "estados": ["Alta", "Baja"],
+      "padres": [],
+      "cpt": [
+        [0.4, 0.6]
+      ],
+      "posicion": { "x": 333, "y": 75 }
+    },
+    {
+      "nombre": "Preparación",
+      "estados": ["Buena", "Mala"],
+      "padres": [],
+      "cpt": [
+        [0.7, 0.3]
+      ],
+      "posicion": { "x": 667, "y": 75 }
+    },
+    {
+      "nombre": "Calificación",
+      "estados": ["Alta", "Media", "Baja"],
+      "padres": ["Dificultad", "Preparación"],
+      "cpt": [
+        [0.3, 0.4, 0.3],
+        [0.05, 0.25, 0.7],
+        [0.9, 0.08, 0.02],
+        [0.5, 0.3, 0.2]
+      ],
+      "posicion": { "x": 500, "y": 310 }
+    },
+    {
+      "nombre": "Carta",
+      "estados": ["Buena", "Mala"],
+      "padres": ["Calificación"],
+      "cpt": [
+        [0.9, 0.1],
+        [0.6, 0.4],
+        [0.01, 0.99]
+      ],
+      "posicion": { "x": 500, "y": 545 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Dificultad"], "evidencia": {"Carta":"Buena"} }
+}

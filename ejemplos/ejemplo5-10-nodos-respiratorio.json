@@ -1,0 +1,112 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Diagnóstico respiratorio",
+  "descripcion": "Red didáctica de 10 nodos: hábitos y antecedentes influyen en enfermedades que producen síntomas y resultados de estudios.",
+  "nodos": [
+    {
+      "nombre": "Fumador",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.3, 0.7]
+      ],
+      "posicion": { "x": 250, "y": 75 }
+    },
+    {
+      "nombre": "Contaminación",
+      "estados": ["Alta", "Baja"],
+      "padres": [],
+      "cpt": [
+        [0.2, 0.8]
+      ],
+      "posicion": { "x": 500, "y": 75 }
+    },
+    {
+      "nombre": "Viaje",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.1, 0.9]
+      ],
+      "posicion": { "x": 750, "y": 75 }
+    },
+    {
+      "nombre": "Bronquitis",
+      "estados": ["Sí", "No"],
+      "padres": ["Fumador"],
+      "cpt": [
+        [0.6, 0.4],
+        [0.3, 0.7]
+      ],
+      "posicion": { "x": 250, "y": 232 }
+    },
+    {
+      "nombre": "Cáncer",
+      "estados": ["Sí", "No"],
+      "padres": ["Fumador", "Contaminación"],
+      "cpt": [
+        [0.05, 0.95],
+        [0.03, 0.97],
+        [0.02, 0.98],
+        [0.001, 0.999]
+      ],
+      "posicion": { "x": 500, "y": 232 }
+    },
+    {
+      "nombre": "Tuberculosis",
+      "estados": ["Sí", "No"],
+      "padres": ["Viaje"],
+      "cpt": [
+        [0.05, 0.95],
+        [0.01, 0.99]
+      ],
+      "posicion": { "x": 750, "y": 232 }
+    },
+    {
+      "nombre": "Anormalidad",
+      "estados": ["Sí", "No"],
+      "padres": ["Tuberculosis", "Cáncer"],
+      "cpt": [
+        [0.99, 0.01],
+        [0.9, 0.1],
+        [0.95, 0.05],
+        [0.05, 0.95]
+      ],
+      "posicion": { "x": 667, "y": 388 }
+    },
+    {
+      "nombre": "Rayos X",
+      "estados": ["Positivo", "Negativo"],
+      "padres": ["Anormalidad"],
+      "cpt": [
+        [0.98, 0.02],
+        [0.05, 0.95]
+      ],
+      "posicion": { "x": 667, "y": 545 }
+    },
+    {
+      "nombre": "Disnea",
+      "estados": ["Sí", "No"],
+      "padres": ["Bronquitis", "Anormalidad"],
+      "cpt": [
+        [0.9, 0.1],
+        [0.8, 0.2],
+        [0.7, 0.3],
+        [0.1, 0.9]
+      ],
+      "posicion": { "x": 333, "y": 545 }
+    },
+    {
+      "nombre": "Tos",
+      "estados": ["Sí", "No"],
+      "padres": ["Bronquitis"],
+      "cpt": [
+        [0.85, 0.15],
+        [0.15, 0.85]
+      ],
+      "posicion": { "x": 333, "y": 388 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Cáncer"], "evidencia": {"Rayos X":"Positivo","Fumador":"Sí"} }
+}

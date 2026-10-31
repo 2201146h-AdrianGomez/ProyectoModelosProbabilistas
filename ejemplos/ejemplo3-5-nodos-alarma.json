@@ -1,0 +1,59 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Alarma de la casa",
+  "descripcion": "Un robo o un terremoto activan la alarma; los vecinos Juan y María llaman si la oyen.",
+  "nodos": [
+    {
+      "nombre": "Robo",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.001, 0.999]
+      ],
+      "posicion": { "x": 333, "y": 75 }
+    },
+    {
+      "nombre": "Terremoto",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.002, 0.998]
+      ],
+      "posicion": { "x": 667, "y": 75 }
+    },
+    {
+      "nombre": "Alarma",
+      "estados": ["Sí", "No"],
+      "padres": ["Robo", "Terremoto"],
+      "cpt": [
+        [0.95, 0.05],
+        [0.94, 0.06],
+        [0.29, 0.71],
+        [0.001, 0.999]
+      ],
+      "posicion": { "x": 500, "y": 310 }
+    },
+    {
+      "nombre": "Juan llama",
+      "estados": ["Sí", "No"],
+      "padres": ["Alarma"],
+      "cpt": [
+        [0.9, 0.1],
+        [0.05, 0.95]
+      ],
+      "posicion": { "x": 333, "y": 545 }
+    },
+    {
+      "nombre": "María llama",
+      "estados": ["Sí", "No"],
+      "padres": ["Alarma"],
+      "cpt": [
+        [0.7, 0.3],
+        [0.01, 0.99]
+      ],
+      "posicion": { "x": 667, "y": 545 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Robo"], "evidencia": {"Juan llama":"Sí","María llama":"Sí"} }
+}

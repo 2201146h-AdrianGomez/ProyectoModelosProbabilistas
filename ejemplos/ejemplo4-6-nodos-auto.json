@@ -1,0 +1,69 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Auto que no enciende",
+  "descripcion": "El frío debilita la batería; la batería y la gasolina deciden si el auto arranca; las luces delatan el estado de la batería.",
+  "nodos": [
+    {
+      "nombre": "Frío",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.3, 0.7]
+      ],
+      "posicion": { "x": 333, "y": 75 }
+    },
+    {
+      "nombre": "Batería",
+      "estados": ["Buena", "Débil"],
+      "padres": ["Frío"],
+      "cpt": [
+        [0.6, 0.4],
+        [0.9, 0.1]
+      ],
+      "posicion": { "x": 500, "y": 232 }
+    },
+    {
+      "nombre": "Gasolina",
+      "estados": ["Suficiente", "Vacío"],
+      "padres": [],
+      "cpt": [
+        [0.9, 0.1]
+      ],
+      "posicion": { "x": 667, "y": 75 }
+    },
+    {
+      "nombre": "Luces",
+      "estados": ["Brillan", "Tenues"],
+      "padres": ["Batería"],
+      "cpt": [
+        [0.95, 0.05],
+        [0.2, 0.8]
+      ],
+      "posicion": { "x": 333, "y": 388 }
+    },
+    {
+      "nombre": "Arranca",
+      "estados": ["Sí", "No"],
+      "padres": ["Batería", "Gasolina"],
+      "cpt": [
+        [0.98, 0.02],
+        [0, 1],
+        [0.3, 0.7],
+        [0, 1]
+      ],
+      "posicion": { "x": 667, "y": 388 }
+    },
+    {
+      "nombre": "Visita al taller",
+      "estados": ["Sí", "No"],
+      "padres": ["Arranca"],
+      "cpt": [
+        [0.05, 0.95],
+        [0.8, 0.2]
+      ],
+      "posicion": { "x": 500, "y": 545 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Batería"], "evidencia": {"Arranca":"No","Luces":"Tenues"} }
+}

@@ -1,0 +1,444 @@
+{
+  "descripcion": "Resultados de referencia calculados por enumeración, para comparar con la eliminación de variables.",
+  "ejemplos": [
+    {
+      "archivo": "ejemplo1-3-nodos-pasto-mojado.json",
+      "nodos": 3,
+      "metodo": "enumeración exhaustiva de la conjunta",
+      "consultas": [
+        {
+          "consulta": [
+            "Lluvia"
+          ],
+          "evidencia": {
+            "Pasto mojado": "Sí"
+          },
+          "probEvidencia": 0.44838,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.357687675632
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.642312324368
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Aspersor"
+          ],
+          "evidencia": {
+            "Pasto mojado": "Sí"
+          },
+          "probEvidencia": 0.44838,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.646728221598
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.353271778402
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Pasto mojado"
+          ],
+          "evidencia": {},
+          "probEvidencia": 1,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.44838
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.55162
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "ejemplo2-4-nodos-estudiante.json",
+      "nodos": 4,
+      "metodo": "enumeración exhaustiva de la conjunta",
+      "consultas": [
+        {
+          "consulta": [
+            "Dificultad"
+          ],
+          "evidencia": {
+            "Carta": "Buena"
+          },
+          "probEvidencia": 0.642084,
+          "distribucion": [
+            {
+              "estados": [
+                "Alta"
+              ],
+              "p": 0.261461117237
+            },
+            {
+              "estados": [
+                "Baja"
+              ],
+              "p": 0.738538882763
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Calificación"
+          ],
+          "evidencia": {
+            "Preparación": "Mala"
+          },
+          "probEvidencia": 0.3,
+          "distribucion": [
+            {
+              "estados": [
+                "Alta"
+              ],
+              "p": 0.32
+            },
+            {
+              "estados": [
+                "Media"
+              ],
+              "p": 0.28
+            },
+            {
+              "estados": [
+                "Baja"
+              ],
+              "p": 0.4
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Dificultad",
+            "Preparación"
+          ],
+          "evidencia": {
+            "Calificación": "Baja"
+          },
+          "probEvidencia": 0.2124,
+          "distribucion": [
+            {
+              "estados": [
+                "Alta",
+                "Buena"
+              ],
+              "p": 0.395480225989
+            },
+            {
+              "estados": [
+                "Alta",
+                "Mala"
+              ],
+              "p": 0.395480225989
+            },
+            {
+              "estados": [
+                "Baja",
+                "Buena"
+              ],
+              "p": 0.0395480225989
+            },
+            {
+              "estados": [
+                "Baja",
+                "Mala"
+              ],
+              "p": 0.169491525424
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "ejemplo3-5-nodos-alarma.json",
+      "nodos": 5,
+      "metodo": "enumeración exhaustiva de la conjunta",
+      "consultas": [
+        {
+          "consulta": [
+            "Robo"
+          ],
+          "evidencia": {
+            "Juan llama": "Sí",
+            "María llama": "Sí"
+          },
+          "probEvidencia": 0.002084100239,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.284171835364
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.715828164636
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Alarma"
+          ],
+          "evidencia": {
+            "Juan llama": "Sí"
+          },
+          "probEvidencia": 0.0521389757,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.0434377117999
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.9565622882
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Robo",
+            "Terremoto"
+          ],
+          "evidencia": {
+            "Alarma": "Sí"
+          },
+          "probEvidencia": 0.002516442,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí",
+                "Sí"
+              ],
+              "p": 0.000755034290478
+            },
+            {
+              "estados": [
+                "Sí",
+                "No"
+              ],
+              "p": 0.372796193991
+            },
+            {
+              "estados": [
+                "No",
+                "Sí"
+              ],
+              "p": 0.230253667678
+            },
+            {
+              "estados": [
+                "No",
+                "No"
+              ],
+              "p": 0.39619510404
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "ejemplo4-6-nodos-auto.json",
+      "nodos": 6,
+      "metodo": "enumeración exhaustiva de la conjunta",
+      "consultas": [
+        {
+          "consulta": [
+            "Batería"
+          ],
+          "evidencia": {
+            "Arranca": "No",
+            "Luces": "Tenues"
+          },
+          "probEvidencia": 0.115739,
+          "distribucion": [
+            {
+              "estados": [
+                "Buena"
+              ],
+              "p": 0.0412911810194
+            },
+            {
+              "estados": [
+                "Débil"
+              ],
+              "p": 0.958708818981
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Gasolina"
+          ],
+          "evidencia": {
+            "Arranca": "No"
+          },
+          "probEvidencia": 0.23428,
+          "distribucion": [
+            {
+              "estados": [
+                "Suficiente"
+              ],
+              "p": 0.573160320983
+            },
+            {
+              "estados": [
+                "Vacío"
+              ],
+              "p": 0.426839679017
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Visita al taller"
+          ],
+          "evidencia": {
+            "Frío": "Sí"
+          },
+          "probEvidencia": 0.3,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.3221
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.6779
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "ejemplo5-10-nodos-respiratorio.json",
+      "nodos": 10,
+      "metodo": "enumeración exhaustiva de la conjunta",
+      "consultas": [
+        {
+          "consulta": [
+            "Cáncer"
+          ],
+          "evidencia": {
+            "Rayos X": "Positivo",
+            "Fumador": "Sí"
+          },
+          "probEvidencia": 0.04069992876,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.234079332575
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.765920667425
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Bronquitis",
+            "Tuberculosis"
+          ],
+          "evidencia": {
+            "Disnea": "Sí",
+            "Tos": "Sí"
+          },
+          "probEvidencia": 0.280853143822,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí",
+                "Sí"
+              ],
+              "p": 0.0147096569851
+            },
+            {
+              "estados": [
+                "Sí",
+                "No"
+              ],
+              "p": 0.938779425163
+            },
+            {
+              "estados": [
+                "No",
+                "Sí"
+              ],
+              "p": 0.00292170270069
+            },
+            {
+              "estados": [
+                "No",
+                "No"
+              ],
+              "p": 0.0435892151514
+            }
+          ]
+        },
+        {
+          "consulta": [
+            "Anormalidad"
+          ],
+          "evidencia": {
+            "Rayos X": "Negativo"
+          },
+          "probEvidencia": 0.881226286472,
+          "distribucion": [
+            {
+              "estados": [
+                "Sí"
+              ],
+              "p": 0.00167834824574
+            },
+            {
+              "estados": [
+                "No"
+              ],
+              "p": 0.998321651754
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
