@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redes Bayesianas · Eliminación de variables</title>
+  <meta name="description" content="Construye, visualiza y consulta redes bayesianas con el método de eliminación de variables.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ccircle cx='9' cy='9' r='3.5' fill='white'/%3E%3Ccircle cx='23' cy='9' r='3.5' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3.5' fill='white'/%3E%3Cpath d='M9 9l7 14M23 9l-7 14' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="marca">
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><circle cx="9" cy="9" r="3.5" fill="#fff"/><circle cx="23" cy="9" r="3.5" fill="#fff"/><circle cx="16" cy="23" r="3.5" fill="#fff"/><path d="M9 9l7 14M23 9l-7 14" stroke="#fff" stroke-width="2"/></svg>
+      <div class="marca-texto">
+        <strong>Redes Bayesianas</strong>
+        <span>Eliminación de variables</span>
+      </div>
+    </div>
+
+    <input id="nombreRed" class="nombre-red" type="text" value="Mi red bayesiana" maxlength="60" aria-label="Nombre de la red" spellcheck="false">
+
+    <nav class="acciones" aria-label="Acciones">
+      <button id="btnNueva" class="btn" type="button">Nueva</button>
+      <button id="btnAbrir" class="btn" type="button">Abrir</button>
+      <button id="btnGuardar" class="btn" type="button">Guardar</button>
+      <div class="menu-contenedor">
+        <button id="btnEjemplos" class="btn" type="button" aria-haspopup="true" aria-expanded="false">Ejemplos ▾</button>
+        <div id="menuEjemplos" class="menu" role="menu" hidden></div>
+      </div>
+      <button id="btnImprimir" class="btn" type="button">Imprimir</button>
+      <button id="btnAyuda" class="btn btn-icono" type="button" aria-label="Ayuda" title="Ayuda">?</button>
+    </nav>
+    <input id="archivoEntrada" type="file" accept=".json,application/json" hidden>
+  </header>
+
+  <main class="cuerpo">
+    <!-- ======================= Panel izquierdo: editor ======================= -->
+    <aside class="panel panel-izq" aria-label="Editor de la red">
+      <section class="seccion">
+        <div id="estadoRed" class="estado-red"></div>
+      </section>
+
+      <section class="seccion">
+        <h2>Nodos</h2>
+        <div id="listaNodos" class="lista-nodos"></div>
+        <form id="formNodo" class="fila agregar-nodo" autocomplete="off">
+          <input id="nuevoNodo" class="campo" type="text" placeholder="Nombre del nuevo nodo" maxlength="40" aria-label="Nombre del nuevo nodo" required>
+          <button id="btnAgregarNodo" class="btn btn-primario" type="submit">Agregar</button>
+        </form>
+      </section>
+
+      <section class="seccion">
+        <h2>Propiedades del nodo</h2>
+        <div id="propNodo"></div>
+      </section>
+    </aside>
+
+    <!-- ============================ Centro: grafo ============================ -->
+    <section class="centro" aria-label="Grafo de la red">
+      <div class="lienzo-barra">
+        <div class="leyenda">
+          <span class="ley"><i class="punto consulta"></i>Consulta</span>
+          <span class="ley"><i class="punto evidencia"></i>Evidencia</span>
+          <span class="ley ley-ayuda">Arrastra los nodos para moverlos</span>
+        </div>
+        <button id="btnReorganizar" class="btn btn-suave" type="button">Reorganizar</button>
+      </div>
+      <div class="lienzo">
+        <svg id="grafo" role="img" aria-label="Grafo dirigido de la red bayesiana" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+    </section>
+
+    <!-- ========================== Panel derecho: consulta ========================== -->
+    <aside class="panel panel-der" aria-label="Consultas">
+      <section class="seccion">
+        <h2>Consulta</h2>
+        <div id="formConsulta"></div>
+      </section>
+      <section class="seccion">
+        <h2>Resultado</h2>
+        <div id="resultado" aria-live="polite"></div>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="dialogo" class="dialogo">
+    <h3 class="dlg-titulo"></h3>
+    <div class="dlg-cuerpo"></div>
+    <div class="dlg-pie"></div>
+  </dialog>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div class="aviso-arrastre" aria-hidden="true">Suelta aquí un archivo .json para abrirlo</div>
+
+  <!-- Parte 1: núcleo -->
+  <script src="js/nucleo/red.js"></script>
+  <script src="js/nucleo/inferencia.js"></script>
+  <!-- Parte 3: archivos y salidas -->
+  <script src="js/archivos/almacenamiento.js"></script>
+  <script src="js/archivos/ejemplos-data.js"></script>
+  <!-- Parte 2: interfaz -->
+  <script src="js/interfaz/util.js"></script>
+  <script src="js/interfaz/grafo.js"></script>
+  <script src="js/interfaz/editor.js"></script>
+  <script src="js/interfaz/consulta.js"></script>
+  <script src="js/archivos/informe.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
