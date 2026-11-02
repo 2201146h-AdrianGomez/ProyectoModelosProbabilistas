@@ -3,7 +3,7 @@
 Aplicación web para **construir, visualizar, consultar y resolver redes bayesianas** con el método de
 **eliminación de variables** (*Variable Elimination*). Funciona en el navegador, sin instalar nada y sin servidor.
 
-- **Demo en línea:** : (pendiente de publicación)
+- **Demo en línea:** : https://2201146h-adriangomez.github.io/ProyectoModelosProbabilistas/
 - **Curso:** Modelos probabilistas · Facultad de Ingeniería Eléctrica, UMSNH
 
 ## Qué hace
