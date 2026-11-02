@@ -1,0 +1,86 @@
+
+A. Validaciones
+  ✓ una red de 3 nodos con CPT uniformes es válida
+  ✓ menos de 3 nodos no es válida
+  ✓ no se pueden agregar más de 10 nodos
+  ✓ nombres repetidos se rechazan (sin importar mayúsculas)
+  ✓ se rechazan ciclos A→B→C→A
+  ✓ un nodo no puede ser su propio padre
+  ✓ un ciclo en un archivo se detecta al validar
+  ✓ una fila de la CPT que no suma 1 se reporta con su descripción
+  ✓ probabilidades fuera de [0,1] o NaN se rechazan
+  ✓ CPT con el número de filas equivocado se rechaza
+  ✓ cambiar los estados de un padre reinicia la CPT del hijo con el tamaño correcto
+  ✓ eliminar un nodo limpia las referencias de sus hijos
+  ✓ renombrar un nodo actualiza a sus hijos
+
+B. Eliminación de variables vs. cálculos hechos a mano
+  ✓ Pasto mojado: P(Lluvia=Sí | Pasto=Sí) = 0.16038 / 0.44838 ≈ 0.357687
+  ✓ Alarma: P(Robo=Sí | Juan=Sí, María=Sí) ≈ 0.284 (valor clásico de Russell & Norvig)
+  ✓ Sin evidencia, la marginal de una raíz es su propia distribución a priori
+  ✓ La distribución resultante suma 1
+  ✓ Evidencia imposible (probabilidad 0) produce un error claro
+  ✓ Una variable no puede estar en la consulta y en la evidencia
+  ✓ El orden de eliminación manual se respeta y no cambia el resultado
+  ✓ Un orden manual incompleto se rechaza
+
+C. Los 5 ejemplos: eliminación de variables vs. enumeración y resultados esperados
+  ✓ 3 nodos · P(Lluvia | Pasto mojado) · minfill
+  ✓ 3 nodos · P(Lluvia | Pasto mojado) · mingrado
+  ✓ 3 nodos · P(Lluvia | Pasto mojado) · lista
+  ✓ 3 nodos · P(Aspersor | Pasto mojado) · minfill
+  ✓ 3 nodos · P(Aspersor | Pasto mojado) · mingrado
+  ✓ 3 nodos · P(Aspersor | Pasto mojado) · lista
+  ✓ 3 nodos · P(Pasto mojado | —) · minfill
+  ✓ 3 nodos · P(Pasto mojado | —) · mingrado
+  ✓ 3 nodos · P(Pasto mojado | —) · lista
+  ✓ 4 nodos · P(Dificultad | Carta) · minfill
+  ✓ 4 nodos · P(Dificultad | Carta) · mingrado
+  ✓ 4 nodos · P(Dificultad | Carta) · lista
+  ✓ 4 nodos · P(Calificación | Preparación) · minfill
+  ✓ 4 nodos · P(Calificación | Preparación) · mingrado
+  ✓ 4 nodos · P(Calificación | Preparación) · lista
+  ✓ 4 nodos · P(Dificultad,Preparación | Calificación) · minfill
+  ✓ 4 nodos · P(Dificultad,Preparación | Calificación) · mingrado
+  ✓ 4 nodos · P(Dificultad,Preparación | Calificación) · lista
+  ✓ 5 nodos · P(Robo | Juan llama,María llama) · minfill
+  ✓ 5 nodos · P(Robo | Juan llama,María llama) · mingrado
+  ✓ 5 nodos · P(Robo | Juan llama,María llama) · lista
+  ✓ 5 nodos · P(Alarma | Juan llama) · minfill
+  ✓ 5 nodos · P(Alarma | Juan llama) · mingrado
+  ✓ 5 nodos · P(Alarma | Juan llama) · lista
+  ✓ 5 nodos · P(Robo,Terremoto | Alarma) · minfill
+  ✓ 5 nodos · P(Robo,Terremoto | Alarma) · mingrado
+  ✓ 5 nodos · P(Robo,Terremoto | Alarma) · lista
+  ✓ 6 nodos · P(Batería | Arranca,Luces) · minfill
+  ✓ 6 nodos · P(Batería | Arranca,Luces) · mingrado
+  ✓ 6 nodos · P(Batería | Arranca,Luces) · lista
+  ✓ 6 nodos · P(Gasolina | Arranca) · minfill
+  ✓ 6 nodos · P(Gasolina | Arranca) · mingrado
+  ✓ 6 nodos · P(Gasolina | Arranca) · lista
+  ✓ 6 nodos · P(Visita al taller | Frío) · minfill
+  ✓ 6 nodos · P(Visita al taller | Frío) · mingrado
+  ✓ 6 nodos · P(Visita al taller | Frío) · lista
+  ✓ 10 nodos · P(Cáncer | Rayos X,Fumador) · minfill
+  ✓ 10 nodos · P(Cáncer | Rayos X,Fumador) · mingrado
+  ✓ 10 nodos · P(Cáncer | Rayos X,Fumador) · lista
+  ✓ 10 nodos · P(Bronquitis,Tuberculosis | Disnea,Tos) · minfill
+  ✓ 10 nodos · P(Bronquitis,Tuberculosis | Disnea,Tos) · mingrado
+  ✓ 10 nodos · P(Bronquitis,Tuberculosis | Disnea,Tos) · lista
+  ✓ 10 nodos · P(Anormalidad | Rayos X) · minfill
+  ✓ 10 nodos · P(Anormalidad | Rayos X) · mingrado
+  ✓ 10 nodos · P(Anormalidad | Rayos X) · lista
+
+D. Redes aleatorias
+  ✓ 300 redes aleatorias: la eliminación de variables coincide con la enumeración
+
+E. Guardar y abrir
+  ✓ los 5 ejemplos se guardan y se abren sin perder información
+  ✓ modificar, guardar y abrir de nuevo conserva los cambios
+  ✓ un archivo con JSON roto da un mensaje claro
+  ✓ un JSON que no es una red se rechaza
+  ✓ un archivo con CPT inválida se rechaza y explica por qué
+  ✓ un archivo con un ciclo se rechaza
+  ✓ si el archivo no trae posiciones, se calculan
+
+74/74 pruebas correctas.

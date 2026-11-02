@@ -121,7 +121,8 @@ docs/FORMATO.md             Formato del archivo de red
 ## Documentación
 
 - [Formato de archivo de las redes](docs/FORMATO.md)
-- Manual de usuario y memoria técnica: (docs/(pendiente))
+- Manual de usuario y memoria técnica: (docs/Manual-de-usuario.pdf
+                                        docs/Memoria-tecnica.pdf)
 
 ## Integrantes y contribuciones
 

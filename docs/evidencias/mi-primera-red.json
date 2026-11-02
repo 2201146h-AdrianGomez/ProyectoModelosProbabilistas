@@ -1,0 +1,38 @@
+{
+  "formato": "red-bayesiana",
+  "version": 1,
+  "nombre": "Mi red bayesiana",
+  "descripcion": "",
+  "nodos": [
+    {
+      "nombre": "Enfermedad",
+      "estados": ["Sí", "No"],
+      "padres": [],
+      "cpt": [
+        [0.01, 0.99]
+      ],
+      "posicion": { "x": 120, "y": 80 }
+    },
+    {
+      "nombre": "Prueba",
+      "estados": ["Positiva", "Negativa"],
+      "padres": ["Enfermedad"],
+      "cpt": [
+        [0.9, 0.1],
+        [0.05, 0.95]
+      ],
+      "posicion": { "x": 340, "y": 80 }
+    },
+    {
+      "nombre": "Síntoma",
+      "estados": ["Sí", "No"],
+      "padres": ["Enfermedad"],
+      "cpt": [
+        [0.7, 0.3],
+        [0.1, 0.9]
+      ],
+      "posicion": { "x": 560, "y": 80 }
+    }
+  ],
+  "consultaSugerida": { "consulta": ["Enfermedad"], "evidencia": {"Prueba":"Positiva"} }
+}
